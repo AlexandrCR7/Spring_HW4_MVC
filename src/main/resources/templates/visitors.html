@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Home Page</title>
+</head>
+<body>
+<h1>Visitors</h1>
+<h2>View list of visitors</h2>
+
+<table>
+    <tr>
+        <th>FIRST NAME</th>
+        <th>LAST NAME</th>
+        <th>TIME</th>
+    </tr>
+    <tr th:each="p: ${visitors}" >
+        <td th:text="${p.firstName}"></td>
+        <td th:text="${p.lastName}"></td>
+        <td th:text="${p.time}"></td>
+    </tr>
+</table>
+
+<h2>Add a product</h2>
+<form action="/visitors" method="post">
+    First Name: <input type="text" name="firstName"><br />
+    Last Name: <input type="text" name="lastName"><br />
+    Time: <input type="number" name="time"><br />
+    <button type="submit">Add new visitor</button>
+</form>
+</body>
+</html>
